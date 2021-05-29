@@ -23,6 +23,16 @@ const StartPage = {
   `,
 };
 
+const HeaderTemplate = {
+  template: `
+  <div class="p-3 text-center">
+    <div class="header_tittle my-3 py-3 mx-auto text-white mw-100px">
+      <h1 class="display-3">Vim道</h1>        
+    </div>
+  </div>
+`,
+};
+
 const PrimaryButton = {
   template: `
   <div class="button_area m-3 m-md-5">
@@ -33,6 +43,7 @@ const PrimaryButton = {
 const app = createApp({
   components: {
     "main-contents": StartPage,
+    "page-header": HeaderTemplate,
     "primary-button": PrimaryButton,
   },
 });
