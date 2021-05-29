@@ -26,7 +26,7 @@ const StartPage = {
 const PrimaryButton = {
   template: `
   <div class="button_area m-3 m-md-5">
-    <button class="button-primary p-2 text-white" onclick="someFunc()">問題スタート</button>
+    <button class="button-primary p-2 text-white" onclick="DifficultyCheck()">問題スタート</button>
   </div>`,
 };
 

@@ -16,7 +16,7 @@ function DifficultyCheck(){
    
    // ラジオボタンの数だけ判定を繰り返す
    // この場合、0～(ラジオボタンの数-1)番目までのfor文にしている
-    for(var i=0; i<document.difficult.length-1;i++){
+    for(var i=0; i<document.difficult.length; i++){
  
         // i番目のラジオボタンがチェックされているかを判定
         if(document.difficult[i].checked){ 
