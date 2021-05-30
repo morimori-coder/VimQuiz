@@ -1,0 +1,28 @@
+[
+{
+    "difficulty_level":"easy",
+    "questions":[
+        {
+            "question":"【Linuxコマンド】ディレクトリの移動",
+            "answer":"cd"
+        },
+        {
+            "question":"【Linuxコマンド】ディレクトリの一覧表示",
+            "answer":"ls"
+        }
+    ]
+},
+{
+    "difficulty_level":"hard",
+    "questions":[
+        {
+            "question":"【ページ内検索】文字列を検索する",
+            "answer":"/"
+        },
+        {
+            "question":"【ページ内検索】検索した文字列の次の検索候補に飛ぶ",
+            "answer":"n"
+        }    
+    ]
+}
+]
