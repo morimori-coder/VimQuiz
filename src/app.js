@@ -15,7 +15,7 @@ const PrimaryButton = {
   template: `
   <div class="button_area m-3 m-md-5">
     <router-link to="/quiz">
-      <button class="button-primary p-2 text-white" onclick="DifficultyCheck()">問題スタート</button>
+      <button class="button-primary p-2 text-white" onclick="ClickedStartProblems()">問題スタート</button>
     </router-link>
   </div>`,
 };
@@ -53,7 +53,6 @@ const DifficultyCheckPage = {
 const QuizPage = {
   template: "<div>Quizページです</div>",
 };
-
 
 const router = createRouter({
   history: createWebHistory(),
