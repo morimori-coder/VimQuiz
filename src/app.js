@@ -32,11 +32,11 @@ const DifficultyCheckPage = {
       <div class="m-3">
         <form name="difficult">
           <label class="difficulty_choose_label mb-4">
-            <input type="radio" value="易しい" />
+            <input type="radio" name="difficulty_choose" value="易しい" />
             <span class="text-white difficulty_level">易しい</span>
           </label>
           <label class="difficulty_choose_label">
-            <input type="radio" value="難しい" />
+            <input type="radio" name="difficulty_choose" value="難しい" />
             <span class="text-white difficulty_level">難しい</span>
           </label>
         </form>
