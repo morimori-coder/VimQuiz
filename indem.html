@@ -27,18 +27,8 @@
     <title>Vue_test</title>
   </head>
   <body>
-    <div id="header">
-      <page-header>
-        <div
-          slot="header"
-          class="header_tittle my-3 py-3 mx-auto text-white mw-100px"
-        >
-          <h1 class="display-3">Vim道</h1>
-        </div>
-      </page-header>
-    </div>
-
     <div id="app">
+      <page-header></page-header>
       <main-contents></main-contents>
       <primary-button></primary-button>
     </div>
@@ -53,8 +43,8 @@
     <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
 
     <!-- コンポーネントのインポート -->
+    <script src="./src/app.js"></script>
     <script src ="./src/Question.js"></script>
     <script src="./src/header.js"></script>
-    <script src="./src/app.js"></script>
   </body>
 </html>
