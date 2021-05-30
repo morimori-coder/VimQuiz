@@ -1,3 +1,4 @@
+const { createRouter, createWebHistory, createWebHashHistory } = VueRouter
 const { createApp } = Vue;
 
 const StartPage = {
