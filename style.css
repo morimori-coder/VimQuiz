@@ -1,0 +1,28 @@
+body {
+  background-color: #375592;
+}
+
+.header_tittle {
+  max-width: 600px;
+  background-color: #4d72be;
+}
+
+.text_area {
+  height: 400px;
+  background-color: #000;
+}
+
+.difficulty_choose_label{
+  display: block;
+  margin-bottom: 8px;
+}
+
+.difficulty_level{
+  font-size:  20px;
+}
+
+.button-primary{
+  border: none;
+  background-color: #4d72be;
+  font-size: 30px;
+}
