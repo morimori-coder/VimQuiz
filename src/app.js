@@ -57,7 +57,7 @@ const QuizPage = {
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", component: DifficultyCheckPage },
+    { path: "/VimQuiz", component: DifficultyCheckPage },
     { path: "/quiz", component: QuizPage },
   ],
 });
