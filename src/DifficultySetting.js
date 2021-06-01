@@ -6,12 +6,13 @@
 let difficultyValue;
 
 // 「問題スタート」ボタンをクリックしたときに呼び出される関数
-function ClickedStartProblems(){
-    DifficultyCheck();
+function clickedStartProblems(){
+    difficultyCheck();
+    console.log(allProblem)
 }
 
 // 難易度チェック
-function DifficultyCheck(){
+function difficultyCheck(){
     var flag = false; // 選択されているか否かを判定するフラグ
    
    // ラジオボタンの数だけ判定を繰り返す
