@@ -26,3 +26,12 @@ body {
   background-color: #4d72be;
   font-size: 30px;
 }
+
+.extra_keys {
+  background-color: #4d72be;
+}
+
+.answer_area{
+  height: 100px;
+  background-color: #000;
+}
