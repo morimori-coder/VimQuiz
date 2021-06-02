@@ -60,7 +60,12 @@ const DifficultyCheckPage = {
 };
 
 const QuizPage = {
-  template: "<div>Quizページです</div>",
+  template: `
+  <HeaderComponent></HeaderComponent>
+  `,
+  components: {
+    HeaderComponent: HeaderComponent,
+  }
 };
 
 const router = createRouter({
