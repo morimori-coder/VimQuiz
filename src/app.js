@@ -62,6 +62,32 @@ const DifficultyCheckPage = {
 const QuizPage = {
   template: `
   <HeaderComponent></HeaderComponent>
+  <div class="text_area w-auto mx-4 mx-md-5 text-white">
+    <p class="p-2">説明文にあうVimコマンドを入力してください</p>
+    <p class="p-2">Q1: Vimを一時停止する</p>
+    <!-- 仮の問題文 -->
+    <div>
+      <form name="extra_keys">
+        <label class="extra_keys p-2 m-2">Ctrl</label
+        ><input type="radio" name="command" value="ctrl" />
+        <label class="extra_keys p-2 m-2">Shift</label
+        ><input type="radio" name="command" value="shift" />
+        <label class="extra_keys p-2 m-2">Esc</label
+        ><input type="radio" name="command" value="esc" />
+      </form>
+    </div>
+    <textarea class="answer_area w-100 h-50 my-3 text-white" placeholder="コマンドを入力してください"></textarea>
+  </div>
+
+  <!-- ボタン間のマージンが効いていないため修正予定 -->
+  <div class="button_area m-3 mx-md-5">
+    <button class="button-primary p-2 text-white" onclick="someFunc()">
+      答え合わせ
+    </button>
+    <button class="button-primary p-2 text-white" onclick="someFunc()">
+      次の問題へ
+    </button>
+  </div>
   `,
   components: {
     HeaderComponent: HeaderComponent,
