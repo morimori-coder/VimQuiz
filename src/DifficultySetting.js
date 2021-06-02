@@ -9,6 +9,16 @@ let difficultyValue;
 function clickedStartProblems(){
     difficultyCheck();
     console.log(allProblem)
+
+    switch (difficultyValue) {
+        case '易しい':
+          
+          break;
+        case '難しい':
+
+        default:
+          // どちらでもない場合にする処理を入れる(今のところ処理内容は未定)
+      }
 }
 
 // 難易度チェック
