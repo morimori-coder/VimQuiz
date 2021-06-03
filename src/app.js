@@ -8,7 +8,9 @@ const DevelopButton = {
     <router-link to="/VimQuiz">
       <button class="btn btn-danger p-2 text-white">開発環境用ボタン</button>
     </router-link>
-  </div>`,
+  </div>
+  <router-link tag="p" to="/page1">page1</router-link>
+  `,
 };
 
 const HeaderComponent = {
@@ -91,7 +93,7 @@ const QuizPage = {
   `,
   components: {
     HeaderComponent: HeaderComponent,
-  }
+  },
 };
 
 const router = createRouter({
@@ -99,9 +101,9 @@ const router = createRouter({
   routes: [
     { path: "/index.html", component: DevelopButton },
     // ローカル環境での開発用のルート。リリース環境では削除する。
-
     { path: "/VimQuiz", component: DifficultyCheckPage },
     { path: "/quiz", component: QuizPage },
+    { path: "/page1", component: httpVueLoader("./page1.vue") },
   ],
 });
 
