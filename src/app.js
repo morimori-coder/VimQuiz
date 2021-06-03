@@ -99,6 +99,7 @@ const router = createRouter({
   routes: [
     { path: "/index.html", component: DevelopButton },
     // ローカル環境での開発用のルート。リリース環境では削除する。
+
     { path: "/VimQuiz", component: DifficultyCheckPage },
     { path: "/quiz", component: QuizPage },
   ],
