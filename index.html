@@ -12,7 +12,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./style.css" />
-    
+
     <style>
       [v-clock] {
         display: none;
@@ -25,7 +25,7 @@
     <div id="app">
       <router-view></router-view>
     </div>
-    
+
     <!-- ライブラリのインポート -->
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://unpkg.com/vue-router@next"></script>
@@ -34,9 +34,11 @@
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- コンポーネントのインポート -->
     <script src="./src/app.js"></script>
-    <script src ="./src/DifficultySetting.js"></script>
+    <script src ="./src/getJson.js"></script>
+    <script src ="./src/difficultySetting.js"></script>
   </body>
 </html>
