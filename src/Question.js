@@ -1,16 +1,17 @@
 
-
-
-
-
-// ラジオボタンのラベルから取得するJsonファイルを判定すれば良い
-// 「問題スタート」ボタンのイベントはQuestion.jsで拾う(ここで拾っても意味ない)
-
 ////////////// Json //////////////
 // 初期画面が表示された瞬間にすべての難易度のJsonファイルを取得する
 // 問題スタート」ボタンが押下された瞬間に初期画面のラジオボタンを判定する
 // ラジオボタンに応じたJsonファイルの中身をQuestions配列に持たせる
 // このタイミングでQuestions配列の順番をランダムに入れ替える
+
+
+function someFunc (){
+     let textLabel = document.getElementsByClassName('button-primary p-2 text-white');
+
+    //  textLabel.item = 'hoge';
+}
+
 // javascriptの変数って任意のタイミングで解放できるのか調べても良いかも
 //  →使わなかった問題を格納する変数分のメモリが無駄な気がする
 

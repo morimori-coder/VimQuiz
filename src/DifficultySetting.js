@@ -5,20 +5,30 @@
 // 難易度を入れておく変数(ラジオボタンのラベル)
 let difficultyValue;
 
-// 「問題スタート」ボタンをクリックしたときに呼び出される関数
-function clickedStartProblems(){
-    difficultyCheck();
-    console.log(allProblem)
+// 出題する問題と解答を入れる変数
+let questions;
 
+// 「問題スタート」ボタンをクリックしたときに呼び出される関数
+function clickedStartProblems() {
+    difficultyCheck();
+
+
+    // 難易度に合わせて問題を格納
+    // allProbemの中身を見るとわかるが、0番目がeasy、1番目がdifficultとなっている
     switch (difficultyValue) {
         case '易しい':
-          
-          break;
+            questions = allProblem[0].questions;
+            break;
+
         case '難しい':
+            questions = allProblem[1].questions;
+            break;
 
         default:
-          // どちらでもない場合にする処理を入れる(今のところ処理内容は未定)
-      }
+        // どちらでもない場合にする処理を入れる(今のところ処理内容は未定)
+    }
+
+    // problemChange();
 }
 
 // 難易度チェック
