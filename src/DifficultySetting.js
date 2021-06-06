@@ -5,7 +5,7 @@
 let difficultyValue;
 
 // 出題する問題と解答を入れる変数
-let questionArray;
+// let questionArray;
 
 // 「問題スタート」ボタンをクリックしたときに呼び出される関数
 function clickedStartProblems() {
