@@ -12,30 +12,144 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./style.css" />
-
+    ​
     <style>
       [v-clock] {
         display: none;
       }
     </style>
-
+    ​
     <title>VimQuiz</title>
   </head>
   <body>
     <div id="app">
-      <router-view></router-view>
+      <!-- ヘッダー -->
+      <div class="p-3 text-center">
+        <div class="header_tittle my-3 py-3 mx-auto text-white mw-100px">
+          <h1 class="display-3">Vim道</h1>
+        </div>
+      </div>
+      ​
+      <!-- 難易度選択 -->
+      <div class="text_area w-auto mx-4 mx-md-5 text-white">
+        <div v-if="questionMode" key="a">
+          <p class="p-3">vimコマンド練習アプリ</p>
+          <p class="px-3">難易度選択</p>
+          <div class="m-3">
+            <form name="difficult">
+              <label class="difficulty_choose_label mb-4">
+                <input type="radio" name="difficulty_choose" value="易しい" />
+                <span class="text-white difficulty_level">易しい</span>
+              </label>
+              <label class="difficulty_choose_label">
+                <input type="radio" name="difficulty_choose" value="難しい" />
+                <span class="text-white difficulty_level">難しい</span>
+              </label>
+            </form>
+          </div>
+        </div>
+        <!-- クイズ画面 -->
+        <div v-else key="b">
+          <p class="p-2">説明文にあうコマンドを入力してください</p>
+          <p class="p-2">{{questions[0].questions[10].question}}</p>
+          <!-- <p class="p-2">【Linuxコマンド】ディレクトリの移動</p> -->
+          <!-- 【消すやつ！！！】 -->
+          <!-- <p class="p-2">{{vtuber[0].name}}</p> -->
+          <div>
+            <form name="extra_keys">
+              <label>
+                <span class="extra_keys p-2 m-2">Ctrl</span>
+                <input type="radio" name="command" value="ctrl" />
+              </label>
+              <label>
+                <span class="extra_keys p-2 m-2">Shift</span>
+                <input type="radio" name="command" value="shift" />
+              </label>
+              <label>
+                <span class="extra_keys p-2 m-2">Esc</span>
+                <input type="radio" name="command" value="esc" />
+              </label>
+            </form>
+          </div>
+          <textarea
+            class="answer_area w-100 my-3 text-white"
+            placeholder="コマンドを入力してください"
+          ></textarea>
+        </div>
+      </div>
+      ​
+      <!-- ボタンエリア -->
+      <div class="button_area m-3 m-md-5" v-if="questionMode">
+        <button class="button-primary p-2 text-white" @click="questionChoose">
+          問題スタート
+        </button>
+      </div>
+      <div class="button_area m-3 mx-md-5" v-else>
+        <button class="button-primary p-2 text-white" @click="finishQuiz">
+          答え合わせ
+        </button>
+        <button class="button-primary p-2 text-white" onclick="someFunc()">
+          次の問題へ
+        </button>
+      </div>
+      <!-- 【消すやつ！！！】json読み込み、レンダリング用のテスト -->
+      <!-- <ol>
+        <li v-for="person in vtuber">{{ person.name }}</li>
+      </ol>
+      <p>{{vtuber[0].name}}</p> -->
     </div>
-
+    ​
     <!-- ライブラリのインポート -->
-    <script src="https://unpkg.com/vue@next"></script>
-    <script src="https://unpkg.com/vue-router@next"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <!-- <script src="https://unpkg.com/vue-router@next"></script> -->
+    <!-- <script src="https://unpkg.com/http-vue-loader"></script> -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+    ​
+    <script>
+      const test = new Vue({
+        el: "#app",
+        data: {
+          questionMode: true,
+          questions: [],
+          // 【消すやつ！！！】
+          // vtuber: []
+        },
+        methods: {
+          questionChoose: function () {
+            this.questionMode = false;
+            clickedStartProblems();
+          },
+          finishQuiz: function () {
+            this.questionMode = true;
+          },
+        },
+        mounted: async function () {
+          axios
+            .get("./level_question_1.json")
+            // .get("./vtuber.json")
+            // thenで成功した場合の処理
+            // getしてきたjsonファイルデータをグローバル(どこからでも参照できる)変数に保持する
+            .then(
+              (res) =>
+                // this.questions = res.data.questions
+                (this.questions = res.data)
+              // 【消すやつ！！！】データ取得テスト用に書いた
+              // this.vtuber = res.data.vtuber
+            )
+            // catchはエラーが起こったときに行う処理
+            .catch((res) => console.log(res))
+            // 最終的に必ず行う処理
+            .finally((res) => console.log("finally"));
+        },
+      });
+      // console.log(test.questions);
+    </script>
+    ​
     <!-- コンポーネントのインポート -->
     <script src="./src/app.js"></script>
     <script src ="./src/getJson.js"></script>
