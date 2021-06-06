@@ -51,27 +51,28 @@
         <!-- クイズ画面 -->
         <div v-else key="b">
           <p class="p-2">説明文にあうコマンドを入力してください</p>
-          <p class="p-2">{{questions[0].questions[10].question}}</p>
-          <!-- <p class="p-2">【Linuxコマンド】ディレクトリの移動</p> -->
+          <p class="p-2" id="questionStatement">1/{{questions.length}}:{{questions[0].question}}</p>
+          <!-- <p class="p-2" id="problemStatement">【Linuxコマンド】ディレクトリの移動</p> -->
           <!-- 【消すやつ！！！】 -->
           <!-- <p class="p-2">{{vtuber[0].name}}</p> -->
           <div>
             <form name="extra_keys">
               <label>
                 <span class="extra_keys p-2 m-2">Ctrl</span>
-                <input type="radio" name="command" value="ctrl" />
+                <input type="radio" name="command" value="Ctrl" />
               </label>
               <label>
                 <span class="extra_keys p-2 m-2">Shift</span>
-                <input type="radio" name="command" value="shift" />
+                <input type="radio" name="command" value="Shift" />
               </label>
               <label>
                 <span class="extra_keys p-2 m-2">Esc</span>
-                <input type="radio" name="command" value="esc" />
+                <input type="radio" name="command" value="Esc" />
               </label>
             </form>
           </div>
           <textarea
+            id="answerArea"
             class="answer_area w-100 my-3 text-white"
             placeholder="コマンドを入力してください"
           ></textarea>
@@ -88,7 +89,7 @@
         <button class="button-primary p-2 text-white" @click="finishQuiz">
           答え合わせ
         </button>
-        <button class="button-primary p-2 text-white" onclick="someFunc()">
+        <button class="button-primary p-2 text-white" onclick="nextQuestionShow()">
           次の問題へ
         </button>
       </div>
@@ -109,7 +110,10 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    ​
+    
+    <!-- arrayShuffle()をnew Vueの中で使いたいため、Question.jsをここで取得 -->
+    <script src ="./src/Question.js"></script>
+    <script src ="./src/difficultySetting.js"></script>​
     <script>
       const test = new Vue({
         el: "#app",
@@ -123,37 +127,20 @@
           questionChoose: function () {
             this.questionMode = false;
             clickedStartProblems();
+            this.questions = questionArray;
           },
           finishQuiz: function () {
-            this.questionMode = true;
+            this.questionMode = false;
+            judgeAnswer();
           },
         },
-        mounted: async function () {
-          axios
-            .get("./level_question_1.json")
-            // .get("./vtuber.json")
-            // thenで成功した場合の処理
-            // getしてきたjsonファイルデータをグローバル(どこからでも参照できる)変数に保持する
-            .then(
-              (res) =>
-                // this.questions = res.data.questions
-                (this.questions = res.data)
-              // 【消すやつ！！！】データ取得テスト用に書いた
-              // this.vtuber = res.data.vtuber
-            )
-            // catchはエラーが起こったときに行う処理
-            .catch((res) => console.log(res))
-            // 最終的に必ず行う処理
-            .finally((res) => console.log("finally"));
-        },
       });
-      // console.log(test.questions);
     </script>
     ​
     <!-- コンポーネントのインポート -->
     <script src="./src/app.js"></script>
     <script src ="./src/getJson.js"></script>
-    <script src ="./src/difficultySetting.js"></script>
-    <script src ="./src/Question.js"></script>
+    
+    
   </body>
 </html>
