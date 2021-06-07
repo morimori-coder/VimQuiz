@@ -51,7 +51,9 @@
         <!-- クイズ画面 -->
         <div v-else key="b">
           <p class="p-2">説明文にあうコマンドを入力してください</p>
-          <p class="p-2" id="questionStatement">1/{{questions.length}}:{{questions[0].question}}</p>
+          <p class="p-2" id="questionStatement">
+            1/{{questions.length}}:{{questions[0].question}}
+          </p>
           <!-- <p class="p-2" id="problemStatement">【Linuxコマンド】ディレクトリの移動</p> -->
           <!-- 【消すやつ！！！】 -->
           <!-- <p class="p-2">{{vtuber[0].name}}</p> -->
@@ -69,7 +71,7 @@
                 <span class="extra_keys p-2 m-2">Esc</span>
                 <input type="radio" name="command" value="Esc" />
               </label>
-              <br>
+              <br />
               <label class="my-4">
                 <span class="extra_keys p-2 m-2">選択を解除する</span>
                 <input type="radio" name="command" value="none" />
@@ -91,12 +93,16 @@
         </button>
       </div>
       <div class="button_area m-3 mx-md-5" v-else>
-        <button class="button-primary p-2 text-white" @click="finishQuiz">
-          答え合わせ
-        </button>
-        <button class="button-primary p-2 text-white" onclick="nextQuestionShow()">
-          次の問題へ
-        </button>
+        <div class="button_area m-3 mx-md-5" v-if="answer_check">
+          <button class="button-primary p-2 text-white" @click="answerCheck">
+            答え合わせ
+          </button>
+        </div>
+        <div class="button_area m-3 mx-md-5" v-else>
+          <button class="button-primary p-2 text-white" @click="nextQuestion">
+            次の問題へ
+          </button>
+        </div>
       </div>
       <!-- 【消すやつ！！！】json読み込み、レンダリング用のテスト -->
       <!-- <ol>
@@ -115,16 +121,18 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    
+
     <!-- arrayShuffle()をnew Vueの中で使いたいため、Question.jsをここで取得 -->
-    <script src ="./src/Question.js"></script>
-    <script src ="./src/DifficultySetting.js"></script>​
+    <script src="./src/Question.js"></script>
+    <script src="./src/DifficultySetting.js"></script>
+    ​
     <script>
       const test = new Vue({
         el: "#app",
         data: {
           questionMode: true,
           questions: [],
+          answer_check: true,
           // 【消すやつ！！！】
           // vtuber: []
         },
@@ -134,9 +142,14 @@
             clickedStartProblems();
             this.questions = questionArray;
           },
-          finishQuiz: function () {
+          answerCheck: function () {
             this.questionMode = false;
+            this.answer_check = false;
             judgeAnswer();
+          },
+          nextQuestion: function () {
+            nextQuestionShow();
+            this.answer_check = true;
           },
         },
       });
@@ -144,8 +157,6 @@
     ​
     <!-- コンポーネントのインポート -->
     <script src="./src/app.js"></script>
-    <script src ="./src/getJson.js"></script>
-    
-    
+    <script src="./src/getJson.js"></script>
   </body>
 </html>
