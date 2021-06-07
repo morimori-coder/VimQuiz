@@ -99,10 +99,7 @@
           </button>
         </div>
         <div class="button_area m-3 mx-md-5" v-else>
-          <button
-            class="button-primary p-2 text-white"
-            onclick="nextQuestionShow()"
-          >
+          <button class="button-primary p-2 text-white" @click="nextQuestion">
             次の問題へ
           </button>
         </div>
@@ -149,6 +146,10 @@
             this.questionMode = false;
             this.answer_check = false;
             judgeAnswer();
+          },
+          nextQuestion: function () {
+            nextQuestionShow();
+            this.answer_check = true;
           },
         },
       });
