@@ -8,6 +8,8 @@ let currentAnswer;
 let questionCounter = 0;
 // Ctrl,Shift,ESCキーで選択されたものを入れる
 let checkedRadioButton;
+// 間違えた問題のインデックス
+let uncorrectAnsIndex = new Array();
 
 // 配列をランダムに並び変える
 const arrayShuffle = (array) => {
@@ -46,12 +48,7 @@ const judgeAnswer = () => {
 
     // 答え合わせの後に表示する解答
     let displayAnswer = currentAnswer;
-
-    // 特殊キーが存在する場合は、displayAnserの表示を「Ctrl + z」みたいにしたいので成形している
-    let anserExtraKey = currentAnswer.match(/Ctrl|Shift|Esc/g);
-    if (anserExtraKey != null) {
-        displayAnswer = currentAnswer.replace(anserExtraKey[0], anserExtraKey[0] + " + ");
-    }
+    displayAnswer = detectExtrakey(displayAnswer);
 
     // \nは改行コード
     if (currentAnswer === (extraKey + inputedAnswer)) {
@@ -59,32 +56,59 @@ const judgeAnswer = () => {
     }
     else {
         anserArea.value = "不正解！" + "\n" + displayAnswer + " : " + currentQuestion;
+        // 不正解だった問題の配列番号を保持しておく
+        uncorrectAnsIndex.push(questionCounter);
     }
+}
+
+// 特殊キーの存在チェックしをし、答えを「Ctrl + z」のような形式に変換している
+const detectExtrakey = (answer) => {
+    let checkedAnswer = answer.match(/Ctrl|Shift|Esc/g);
+    if (checkedAnswer != null) {
+        answer = answer.replace(checkedAnswer[0], checkedAnswer[0] + " + ");
+    }
+    return answer;
 }
 
 // 「次の問題へ」ボタンを押した際の処理
 function nextQuestionShow() {
     // ラジオボタンが選択されている場合は、選択解除する
-    if(checkedRadioButton != undefined){
+    if (checkedRadioButton != undefined) {
         checkedRadioButton.checked = false;
     }
-    
+
     // 問題を次に進める
     questionCounter += 1;
 
-    // 画面上で出題する問題と答えを格納している
-    currentQuestion = questionArray[questionCounter].question
-    currentAnswer = questionArray[questionCounter].answer;
-
-    // 問題文を変更
-    let questionStatement = document.getElementById("questionStatement");
-    questionStatement.innerText = (questionCounter + 1) + "/" +
-        questionArray.length + currentQuestion;
-
-    // 解答欄のリフレッシュ
+    // 解答欄の取得とリフレッシュ
     let anserArea = document.getElementById("answerArea");
     anserArea.value = "";
 
+    // 最後の問題まで進んでいるか？を判定している
+    if (questionCounter < questionArray.length) {
+        // 画面上で出題する問題と答えを格納している
+        currentQuestion = questionArray[questionCounter].question
+        currentAnswer = questionArray[questionCounter].answer;
+
+        // 問題文を変更
+        let questionStatement = document.getElementById("questionStatement");
+        questionStatement.innerText = (questionCounter + 1) + "/" + questionArray.length
+            + currentQuestion;
+    }
+    else {
+        if (uncorrectAnsIndex.length == 0) {
+            anserArea.value = "全問正解です！\nやったね！！";
+        }
+        else {
+            anserArea.value = "間違えた問題はこちらです。\n"
+        }
+
+        for (const i of uncorrectAnsIndex) {
+            anserArea.value += (i + 1) + "/" + questionArray.length
+                + questionArray[i].question + "\n"
+                + "答え : " + detectExtrakey(questionArray[i].answer) + "\n";
+        }
+    }
 }
 
 // javascriptの変数って任意のタイミングで解放できるのか調べても良いかも
