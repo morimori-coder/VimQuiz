@@ -93,16 +93,21 @@
         </button>
       </div>
       <div class="button_area m-3 mx-md-5" v-else>
-        <div class="button_area m-3 mx-md-5" v-if="answer_check">
-          <button class="button-primary p-2 text-white" @click="answerCheck">
-            答え合わせ
-          </button>
-        </div>
-        <div class="button_area m-3 mx-md-5" v-else>
-          <button class="button-primary p-2 text-white" @click="nextQuestion">
-            次の問題へ
-          </button>
-        </div>
+        <button
+          class="button-primary p-2 text-white"
+          @click="answerCheck"
+          v-if="answer_check"
+        >
+          答え合わせ
+        </button>
+
+        <button
+          class="button-primary p-2 text-white"
+          @click="nextQuestion"
+          v-else
+        >
+          次の問題へ
+        </button>
       </div>
       <!-- 【消すやつ！！！】json読み込み、レンダリング用のテスト -->
       <!-- <ol>
@@ -127,7 +132,7 @@
     <script src="./src/DifficultySetting.js"></script>
     ​
     <script>
-      const test = new Vue({
+      const app = new Vue({
         el: "#app",
         data: {
           questionMode: true,
