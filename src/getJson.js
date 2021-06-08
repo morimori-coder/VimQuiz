@@ -1,7 +1,5 @@
 let allProblem;
 
-/////////////////////  json取得(start)  //////////////
-
 // asyncを指定することで、非同期処理となる
 // axios
 (async function getJsonFile() {
@@ -16,5 +14,3 @@ let allProblem;
         // 最終的に必ず行う処理
         .finally(res => console.log('finally'))
 }());
-
-/////////////////////  json取得(end)  ////////////////
