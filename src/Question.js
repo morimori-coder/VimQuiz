@@ -38,7 +38,9 @@ const judgeAnswer = () => {
     // 選択されている特殊キーを取得
     for (var i = 0; i < document.extra_keys.length; i++) {
         // i番目のラジオボタンがチェックされているかを判定
-        if (document.extra_keys[i].checked) {
+        // &&判定で選択状態のラジオボタンのvalueがnoneだった場合はif文に入らないようにしている
+        // &&演算子は短絡評価といって、左側の式がfalseなら右側の式を評価しないで全体をfalseにする演算子
+        if (document.extra_keys[i].checked && document.extra_keys[i].value !== "none") {
             checkedRadioButton = document.extra_keys[i];
             extraKey = checkedRadioButton.value;
             // ラジオボタンのため、選択された値が取れた時点でfor文を抜ける
@@ -63,7 +65,7 @@ const judgeAnswer = () => {
 
 // 特殊キーの存在チェックしをし、答えを「Ctrl + z」のような形式に変換している
 const detectExtrakey = (answer) => {
-    let checkedAnswer = answer.match(/Ctrl|Shift|Esc/g);
+    let checkedAnswer = answer.match(/Ctrl|Shift/g);
     if (checkedAnswer != null) {
         answer = answer.replace(checkedAnswer[0], checkedAnswer[0] + " + ");
     }
