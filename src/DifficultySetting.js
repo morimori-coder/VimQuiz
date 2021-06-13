@@ -1,9 +1,6 @@
 // 難易度を入れておく変数(ラジオボタンのラベル)
 let difficultyValue;
 
-// 出題する問題と解答を入れる変数
-// let questionArray;
-
 // 「問題スタート」ボタンをクリックしたときに呼び出される関数
 function clickedStartProblems() {
     difficultyCheck();
@@ -25,8 +22,6 @@ function clickedStartProblems() {
     }
 
     arrayShuffle(questionArray);
-
-    // problemChange();
 }
 
 // 難易度チェック
@@ -41,10 +36,6 @@ function difficultyCheck(){
         if(document.difficult[i].checked){ 
             flag = true;
             difficultyValue = document.difficult[i].value;
-
-            // このalertはリリース時には削除する予定
-            // リリース前だけどうっとしいのでコメントアウト
-            // alert(difficultyValue + "が選択されました。");
 
             // flagがtrueになった時点でfor文を抜ける
             break;
