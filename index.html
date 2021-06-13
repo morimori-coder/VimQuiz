@@ -54,9 +54,6 @@
           <p class="p-2" id="questionStatement">
             1/{{questions.length}}:{{questions[0].question}}
           </p>
-          <!-- <p class="p-2" id="problemStatement">【Linuxコマンド】ディレクトリの移動</p> -->
-          <!-- 【消すやつ！！！】 -->
-          <!-- <p class="p-2">{{vtuber[0].name}}</p> -->
           <div>
             <form name="extra_keys">
               <label>
@@ -109,17 +106,10 @@
           次の問題へ
         </button>
       </div>
-      <!-- 【消すやつ！！！】json読み込み、レンダリング用のテスト -->
-      <!-- <ol>
-        <li v-for="person in vtuber">{{ person.name }}</li>
-      </ol>
-      <p>{{vtuber[0].name}}</p> -->
     </div>
     ​
     <!-- ライブラリのインポート -->
     <script src="https://unpkg.com/vue"></script>
-    <!-- <script src="https://unpkg.com/vue-router@next"></script> -->
-    <!-- <script src="https://unpkg.com/http-vue-loader"></script> -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
@@ -138,8 +128,6 @@
           questionMode: true,
           questions: [],
           answer_check: true,
-          // 【消すやつ！！！】
-          // vtuber: []
         },
         methods: {
           questionChoose: function () {
