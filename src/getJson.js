@@ -1,7 +1,8 @@
+// level_question_1.jsonから取得したすべての問題を入れる
 let allProblem;
 
 // asyncを指定することで、非同期処理となる
-// axios
+// functionを()でくくることで即時関数になる)
 (async function getJsonFile() {
     axios.get('./level_question_1.json')
         // thenで成功した場合の処理
