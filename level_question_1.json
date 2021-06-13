@@ -11,7 +11,7 @@
             "answer":"ls"
         },
         {
-            "question":"【Linuxコマンド】カウントディレクトリの表示",
+            "question":"【Linuxコマンド】カレントディレクトリの表示",
             "answer":"pwd"
         },
         {
@@ -63,7 +63,7 @@
             "answer":"i"
         },
         {
-            "question":"【入力と保存】新しい行を追加し、InsertModeに入る",
+            "question":"【入力と保存】新しい行を追加しInsertModeに入る",
             "answer":"o"
         },
         {
@@ -83,11 +83,11 @@
             "answer":"Ctrlv"
         },
         {
-            "question":"【入力と保存】NormalModeに戻る（1keyで！）",
+            "question":"【入力と保存】NormalModeに戻る（1key）",
             "answer":"Esc"
         },
         {
-            "question":"【入力と保存】NormalModeに戻る（2keyで！！）",
+            "question":"【入力と保存】NormalModeに戻る（2key）",
             "answer":"Ctrl["
         },
         {
