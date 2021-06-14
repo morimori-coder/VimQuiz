@@ -21,6 +21,10 @@ body {
   font-size:  20px;
 }
 
+.number_of_questions {
+  font-size:  20px;
+}
+
 .button-primary{
   border: none;
   background-color: #4d72be;
