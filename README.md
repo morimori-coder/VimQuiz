@@ -16,6 +16,7 @@ Production members：守屋 諒👓　NOBUo👓　こぶ👓
 バックエンド：javascript
 
 > 使用フレームワーク
+> 
 > **vue.js** 
 > 
 > Webアプリケーション開発で使用されることが多いフレームワーク。
@@ -25,7 +26,8 @@ Production members：守屋 諒👓　NOBUo👓　こぶ👓
 > データ・画面・メイン処理といったように分けて開発を進めることができるので、
 > 
 > **プログラムの追加や修正がしやすく、共同開発に向いている**。
->
+
+
 > **Bootstrap**
 > 
 > BootstrapはHTML／CSS／JavaScriptから構成される最も有名なWEBフレームワーク。
