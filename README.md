@@ -1,4 +1,4 @@
-# vimコマンド練習アプリ📱
+# VimQuiz~vimコマンド練習アプリ📱~
 
 Production members：守屋 諒👓　NOBUo👓　こぶ👓
 
