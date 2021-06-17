@@ -17,11 +17,18 @@ function clickedStartProblems() {
             questionArray = allProblem[1].questions;
             break;
 
+        case '間違えた問題':
+            questionArray = lastUncorrectQuestions;
         default:
-        // どちらでもない場合にする処理を入れる(今のところ処理内容は未定)
+        // 常に入る処理
     }
 
-    arrayShuffle(questionArray);
+    if(questionArray != null){
+        arrayShuffle(questionArray);
+    }
+    else{
+        alert("前回全問正解してますよ！");
+    }
 }
 
 // 難易度チェック
