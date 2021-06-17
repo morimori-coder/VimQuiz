@@ -24,6 +24,8 @@ const arrayShuffle = (array) => {
         array[r] = tmp;
 
     }
+
+    // 第一問を変数に格納
     currentQuestion = array[0].question;
     currentAnswer = array[0].answer;
 }
@@ -64,7 +66,7 @@ const judgeAnswer = () => {
 
 // 特殊キーの存在チェックしをし、答えを「Ctrl + z」のような形式に変換している
 const detectExtrakey = (answer) => {
-    let checkedAnswer = answer.match(/Ctrl|Shift/g);
+    let checkedAnswer = answer.match(/Ctrl|:/g);
     if (checkedAnswer != null) {
         answer = answer.replace(checkedAnswer[0], checkedAnswer[0] + " + ");
     }
@@ -97,17 +99,32 @@ function nextQuestionShow() {
             + currentQuestion;
     }
     else {
-        if (uncorrectAnsIndex.length == 0) {
-            anserArea.value = "全問正解です！\nやったね！！";
-        }
-        else {
-            anserArea.value = "間違えた問題はこちらです。\n"
-        }
-
-        for (const i of uncorrectAnsIndex) {
-            anserArea.value += (i + 1) + "/" + questionArray.length
-                + questionArray[i].question + "\n"
-                + "答え : " + detectExtrakey(questionArray[i].answer) + "\n";
-        }
+        finalQuestionFinish(anserArea);
     }
+}
+
+// 最後問題が終わっていたら呼び出す関数
+const finalQuestionFinish = (anserAreaTextBox) => {
+    if (uncorrectAnsIndex.length == 0) {
+        anserAreaTextBox.value = "全問正解です！\nやったね！！";
+    }
+    else {
+        anserAreaTextBox.value = "間違えた問題はこちらです。\n"
+    }
+
+    // 「間違えた問題」モードのために保存する問題を入れる
+    const questionsToSave = [];
+
+    // uncorrectAnsIndexに要素が一つも存在しないの場合、このfor文の中には入らない
+    // 拡張for文とか言われるものだったはず(var i; i < unncorrectAnsIndexほにゃららとか書かないで済む)
+    for (const i of uncorrectAnsIndex) {
+        anserAreaTextBox.value += (i + 1) + "/" + questionArray.length
+            + questionArray[i].question + "\n"
+            + "答え : " + detectExtrakey(questionArray[i].answer) + "\n";
+
+            questionsToSave.push({question:questionArray[i].question, answer:questionArray[i].answer});
+    }
+
+    // localStorageにJson形式で配列をセットする
+    localStorage.setItem('json', JSON.stringify(questionsToSave));
 }
