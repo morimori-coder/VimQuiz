@@ -33,13 +33,17 @@
           <p class="px-3">難易度選択</p>
           <div class="m-3">
             <form name="difficult">
-              <label class="difficulty_choose_label mb-4">
+              <label class="difficulty_choose_label mb-2">
                 <input type="radio" name="difficulty_choose" value="易しい" />
                 <span class="text-white difficulty_level">易しい</span>
               </label>
-              <label class="difficulty_choose_label">
+              <label class="difficulty_choose_label mb-2">
                 <input type="radio" name="difficulty_choose" value="難しい" />
                 <span class="text-white difficulty_level">難しい</span>
+              </label>
+              <label class="difficulty_choose_label">
+                <input type="radio" name="difficulty_choose" value="間違えた問題" />
+                <span class="text-white difficulty_level">間違えた問題</span>
               </label>
             </form>
           </div>
@@ -137,7 +141,7 @@
     <!-- arrayShuffle()をnew Vueの中で使いたいため、Question.jsをここで取得 -->
     <script src="./src/Question.js"></script>
     <script src="./src/DifficultySetting.js"></script>
-        ​
+    ​
     <!-- コンポーネントのインポート -->
     <script src="./src/app.js"></script>
     <script src="./src/getJson.js"></script>
