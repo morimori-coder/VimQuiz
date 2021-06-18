@@ -26,8 +26,9 @@
       <!-- ヘッダー -->
       <vim-header></vim-header>
       ​
-      <!-- 難易度選択 -->
+      <!-- メインコンテンツ部分 -->
       <div class="text_area w-auto mx-4 mx-md-5 text-white">
+        <!-- 難易度選択 -->
         <div v-if="questionMode" key="a">
           <p class="p-3">vimコマンド練習アプリ</p>
           <p class="px-3">難易度選択</p>
@@ -42,7 +43,11 @@
                 <span class="text-white difficulty_level">難しい</span>
               </label>
               <label class="difficulty_choose_label">
-                <input type="radio" name="difficulty_choose" value="間違えた問題" />
+                <input
+                  type="radio"
+                  name="difficulty_choose"
+                  value="間違えた問題"
+                />
                 <span class="text-white difficulty_level">間違えた問題</span>
               </label>
             </form>
@@ -69,6 +74,7 @@
             </form>
           </div>
         </div>
+
         <!-- クイズ画面 -->
         <div v-else key="b">
           <p class="p-2">説明文にあうコマンドを入力してください</p>
@@ -105,11 +111,14 @@
       </div>
       ​
       <!-- ボタンエリア -->
+      <!-- 難易度選択画面で出力するボタン -->
       <div class="button_area m-3 m-md-5" v-if="questionMode">
         <button class="button-primary p-2 text-white" @click="questionChoose">
           問題スタート
         </button>
       </div>
+
+      <!-- クイズ画面で出力するボタン -->
       <div class="button_area m-3 mx-md-5" v-else>
         <button
           class="button-primary p-2 text-white"
