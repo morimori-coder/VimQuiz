@@ -1,9 +1,18 @@
 // 難易度を入れておく変数(ラジオボタンのラベル)
 let difficultyValue;
+// 問題数
+let questionLength;
 
 // 「問題スタート」ボタンをクリックしたときに呼び出される関数
+// 難易度と出題数の設定をする
 function clickedStartProblems() {
-    difficultyCheck();
+    difficultyValue = radioButtonCheck(document.difficult);
+    if(difficultyValue === undefined){
+        alert('難易度が選択されていません');
+
+        // 難易度が選択されていなければ早期リターン
+        return;
+    }
 
     // 難易度に合わせて問題を格納
     // allProbemはgetJson.jsのグローバル変数
@@ -23,35 +32,38 @@ function clickedStartProblems() {
         // 常に入る処理
     }
 
+    // 間違えた問題モード選択時、nullが入る可能性があるため
     if(questionArray != null){
         arrayShuffle(questionArray);
     }
     else{
-        alert("前回全問正解してますよ！");
+        alert('前回全問正解してますよ！');
+    }
+
+    questionLength = radioButtonCheck(document.number_of_questions);
+    if(questionLength == undefined || questionLength == null) {
+        questionLength = questionArray.length;
     }
 }
 
-// 難易度チェック
-function difficultyCheck(){
-    var flag = false; // 選択されているか否かを判定するフラグ
+// 難易度または問題するのラジオボタンをチェック
+function radioButtonCheck(radioButtons){
+
+    let result;
    
    // ラジオボタンの数だけ判定を繰り返す
    // この場合、0～(ラジオボタンの数-1)番目までのfor文にしている
-    for(var i=0; i<document.difficult.length; i++){
+    for(var i=0; i<radioButtons.length; i++){
  
         // i番目のラジオボタンがチェックされているかを判定
-        if(document.difficult[i].checked){ 
+        if(radioButtons[i].checked){ 
             flag = true;
-            difficultyValue = document.difficult[i].value;
+            result = radioButtons[i].value;
 
             // flagがtrueになった時点でfor文を抜ける
             break;
         }
     }
-  
-    // 何も選択されていない場合の処理
-    // デフォルトで選択されているようにすればこのif文自体が不要になる
-    if(!flag){ 
-        alert("項目が選択されていません。");
-    }
+
+    return result;
 }
