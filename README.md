@@ -1,6 +1,6 @@
 # VimQuiz
 
-Production members：守屋 諒👓　NOBUo👓　こぶ👓
+Production members：ryo👓　NOBUo👓　kobu👓
 
 
 
