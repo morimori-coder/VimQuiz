@@ -14,12 +14,14 @@ const app = new Vue({
     questionMode: true,
     questions: [],
     answer_check: true,
+    questionLength
   },
   methods: {
     questionChoose: function () {
       this.questionMode = false;
       clickedStartProblems();
       this.questions = questionArray;
+      this.questionLength = questionLength
     },
     answerCheck: function () {
       this.questionMode = false;

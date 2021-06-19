@@ -79,7 +79,7 @@
         <div v-else key="b">
           <p class="p-2">説明文にあうコマンドを入力してください</p>
           <p class="p-2" id="questionStatement">
-            1/{{questions.length}}:{{questions[0].question}}
+            1/{{questionLength}}:{{questions[0].question}}
           </p>
           <div>
             <form name="extra_keys">
@@ -149,7 +149,7 @@
 
     <!-- arrayShuffle()をnew Vueの中で使いたいため、Question.jsをここで取得 -->
     <script src="./src/Question.js"></script>
-    <script src="./src/DifficultySetting.js"></script>
+    <script src="./src/problemPrepare.js"></script>
     ​
     <!-- コンポーネントのインポート -->
     <script src="./src/app.js"></script>

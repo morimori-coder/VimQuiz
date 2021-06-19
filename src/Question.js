@@ -88,14 +88,14 @@ function nextQuestionShow() {
     anserArea.value = "";
 
     // 最後の問題まで進んでいるか？を判定している
-    if (questionCounter < questionArray.length) {
+    if (questionCounter < questionLength) {
         // 画面に出題する問題と答えを格納している
         currentQuestion = questionArray[questionCounter].question
         currentAnswer = questionArray[questionCounter].answer;
 
         // 問題文を変更
         let questionStatement = document.getElementById("questionStatement");
-        questionStatement.innerText = (questionCounter + 1) + "/" + questionArray.length
+        questionStatement.innerText = (questionCounter + 1) + "/" + questionLength
             + currentQuestion;
     }
     else {
@@ -118,7 +118,7 @@ const finalQuestionFinish = (anserAreaTextBox) => {
     // uncorrectAnsIndexに要素が一つも存在しないの場合、このfor文の中には入らない
     // 拡張for文とか言われるものだったはず(var i; i < unncorrectAnsIndexほにゃららとか書かないで済む)
     for (const i of uncorrectAnsIndex) {
-        anserAreaTextBox.value += (i + 1) + "/" + questionArray.length
+        anserAreaTextBox.value += (i + 1) + "/" + questionLength
             + questionArray[i].question + "\n"
             + "答え : " + detectExtrakey(questionArray[i].answer) + "\n";
 
