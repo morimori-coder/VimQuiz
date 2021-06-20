@@ -24,7 +24,11 @@
   <body>
     <div id="app">
       <!-- ヘッダー -->
-      <vim-header></vim-header>
+      <div class="p-3 text-center">
+        <div class="header_tittle my-3 py-3 mx-auto text-white mw-100px">
+          <h1 class="display-3">Vim道</h1>
+        </div>
+      </div>
       ​
       <!-- メインコンテンツ部分 -->
       <div class="text_area w-auto mx-4 mx-md-5 text-white">
@@ -77,7 +81,9 @@
 
         <!-- クイズ画面 -->
         <div v-else key="b">
-          <p class="p-2" id="defaultStatement">説明文にあうコマンドを入力してください</p>
+          <p class="p-2" id="defaultStatement">
+            説明文にあうコマンドを入力してください
+          </p>
           <p class="p-2" id="questionStatement">
             1/{{questionLength}}:{{questions[0].question}}
           </p>
