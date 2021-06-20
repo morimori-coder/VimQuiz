@@ -134,14 +134,14 @@
       ​
       <!-- ボタンエリア -->
       <!-- 難易度選択画面で出力するボタン -->
-      <div class="button_area m-3 m-md-5" v-if="questionMode">
+      <div class="button_area mx-4 m-md-5" v-if="questionMode">
         <button class="button-primary p-2 text-white" @click="questionChoose">
           問題スタート
         </button>
       </div>
 
       <!-- クイズ画面で出力するボタン -->
-      <div class="button_area m-3 mx-md-5" v-else>
+      <div class="button_area mx-4 mx-md-5" v-else>
         <button
           class="button-primary p-2 text-white"
           @click="answerCheck"
