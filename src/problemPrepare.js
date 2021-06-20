@@ -28,16 +28,19 @@ function clickedStartProblems() {
 
         case '間違えた問題':
             questionArray = lastUncorrectQuestions;
-        default:
-        // 常に入る処理
     }
 
     // 間違えた問題モード選択時、nullが入る可能性があるため
-    if(questionArray != null){
-        arrayShuffle(questionArray);
+    if(questionArray == null){
+        alert('初挑戦かと思われます！');
+        return;
+    }
+    else if(questionArray.length == 0){
+        alert('前回全問正解してますよ！');
+        return;
     }
     else{
-        alert('前回全問正解してますよ！');
+        arrayShuffle(questionArray);
     }
 
     questionLength = radioButtonCheck(document.number_of_questions);
@@ -57,10 +60,9 @@ function radioButtonCheck(radioButtons){
  
         // i番目のラジオボタンがチェックされているかを判定
         if(radioButtons[i].checked){ 
-            flag = true;
             result = radioButtons[i].value;
 
-            // flagがtrueになった時点でfor文を抜ける
+            // 値が取得できた時点でfor文を抜ける
             break;
         }
     }

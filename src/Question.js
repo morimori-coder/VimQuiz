@@ -105,6 +105,11 @@ function nextQuestionShow() {
 
 // 最後問題が終わっていたら呼び出す関数
 const finalQuestionFinish = (anserAreaTextBox) => {
+    let defaultStatement = document.getElementById("defaultStatement");
+    defaultStatement.innerText = "";
+    let questionStatement = document.getElementById("questionStatement");
+    questionStatement.innerText = "ブラウザの更新ボタンで初期画面に戻ります。";
+
     if (uncorrectAnsIndex.length == 0) {
         anserAreaTextBox.value = "全問正解です！\nやったね！！";
     }

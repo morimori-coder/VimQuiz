@@ -24,10 +24,7 @@ let lastUncorrectQuestions;
     var data = localStorage.getItem('json');
 
     // 取得できなかったら処理を返す(次の行に進まない)
-    // if文は{}内が1行のみなら{}を省略可能です。
-    // また、プログラム的には改行しないですべてのコードを1行につなげて書いても問題ないので
-    // あえてこういう書き方をしています
-    if(data === null || data === undefined){
+    if(data === null){
         lastUncorrectQuestions = null;
         return;
     }
