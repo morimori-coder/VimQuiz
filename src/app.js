@@ -2,7 +2,7 @@ const app = new Vue({
   el: "#app",
   data: {
     questionMode: true,
-    answer_check: true,
+    answerCheckMode: true,
     questions: [],
     questionLength,
   },
@@ -15,12 +15,12 @@ const app = new Vue({
     },
     answerCheck: function () {
       this.questionMode = false;
-      this.answer_check = false;
+      this.answerCheckMode = false;
       judgeAnswer();
     },
     nextQuestion: function () {
       nextQuestionShow();
-      this.answer_check = true;
+      this.answerCheckMode = true;
     },
   },
 });
