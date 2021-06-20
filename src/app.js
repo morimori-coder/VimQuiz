@@ -2,8 +2,8 @@ const app = new Vue({
   el: "#app",
   data: {
     questionMode: true,
-    questions: [],
     answer_check: true,
+    questions: [],
     questionLength,
   },
   methods: {
