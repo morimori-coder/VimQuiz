@@ -1,27 +1,17 @@
-const VimHeader = {
-  template:`
-    <div class="p-3 text-center">
-      <div class="header_tittle my-3 py-3 mx-auto text-white mw-100px">
-        <h1 class="display-3">Vim道</h1>
-      </div>
-    </div>
-  `
-}
-
 const app = new Vue({
   el: "#app",
   data: {
     questionMode: true,
     questions: [],
     answer_check: true,
-    questionLength
+    questionLength,
   },
   methods: {
     questionChoose: function () {
       this.questionMode = false;
       clickedStartProblems();
       this.questions = questionArray;
-      this.questionLength = questionLength
+      this.questionLength = questionLength;
     },
     answerCheck: function () {
       this.questionMode = false;
@@ -33,7 +23,4 @@ const app = new Vue({
       this.answer_check = true;
     },
   },
-  components: {
-    'vim-header': VimHeader
-  }
 });
