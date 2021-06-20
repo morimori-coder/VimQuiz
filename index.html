@@ -60,19 +60,35 @@
           <div class="m-3">
             <form name="number_of_questions">
               <label>
-                <input type="radio" name="number" value="5" />
+                <input
+                  type="radio"
+                  name="number_of_questions_selected"
+                  value="5"
+                />
                 <span class="number_of_questions p-2 m-2">5</span>
               </label>
               <label>
-                <input type="radio" name="number" value="10" />
+                <input
+                  type="radio"
+                  name="number_of_questions_selected"
+                  value="10"
+                />
                 <span class="number_of_questions p-2 m-2">10</span>
               </label>
               <label>
-                <input type="radio" name="number" value="15" />
+                <input
+                  type="radio"
+                  name="number_of_questions_selected"
+                  value="15"
+                />
                 <span class="number_of_questions p-2 m-2">15</span>
               </label>
               <label>
-                <input type="radio" name="number" value="all" />
+                <input
+                  type="radio"
+                  name="number_of_questions_selected"
+                  value="all"
+                />
                 <span class="number_of_questions p-2 m-2">全問</span>
               </label>
             </form>
@@ -129,7 +145,7 @@
         <button
           class="button-primary p-2 text-white"
           @click="answerCheck"
-          v-if="answer_check"
+          v-if="answerCheckMode"
         >
           答え合わせ
         </button>
