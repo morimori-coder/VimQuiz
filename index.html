@@ -33,7 +33,7 @@
       <!-- メインコンテンツ部分 -->
       <div class="text_area w-auto mx-4 mx-md-5 text-white">
         <!-- 難易度選択 -->
-        <div v-if="questionMode" key="a">
+        <div v-if="questionMode">
           <p class="p-3">vimコマンド練習アプリ</p>
           <p class="px-3">難易度選択</p>
           <div class="m-3">
@@ -96,7 +96,7 @@
         </div>
 
         <!-- クイズ画面 -->
-        <div v-else key="b">
+        <div v-else>
           <p class="p-2" id="defaultStatement">
             説明文にあうコマンドを入力してください
           </p>
