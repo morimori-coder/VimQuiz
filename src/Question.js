@@ -103,6 +103,8 @@ function nextQuestionShow() {
     }
 }
 
+/// test
+
 // 最後問題が終わっていたら呼び出す関数
 const finalQuestionFinish = (anserAreaTextBox) => {
     let defaultStatement = document.getElementById("defaultStatement");
